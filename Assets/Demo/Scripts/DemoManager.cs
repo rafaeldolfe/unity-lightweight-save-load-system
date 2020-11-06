@@ -30,7 +30,6 @@ namespace PlainSaveLoad
             {
                 gdm.LoadSave(0);
                 List<PlainGameObject> plainBrawlers = gdm.GetGameData<List<PlainGameObject>>("Brawlers");
-                Debug.Log($"brawlers.Count: {plainBrawlers.Count}");
                 // Remove all previous brawlers
                 brawlers.ForEach(Destroy);
                 // Instantiate the saved brawlers
