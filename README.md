@@ -1,0 +1,2 @@
+# unity-plain-save-load-system
+A lightweight and easily modified JSON save load system for Unity which can save entire GameObjects, including its MonoBehaviours. It is done by converting between GameObjects and PlainGameObjects, the data version of GameObjects, saving the PlainGameObjects on disk. The system will require some coding by the user to operate. The user will have to implement his or her own cases for whatever Components they need to save, such as Colliders, UI images, TextMeshPro, etc. Only special cases for Rigidbodys and Transforms are currently implemented.
