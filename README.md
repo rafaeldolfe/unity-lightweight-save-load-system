@@ -76,6 +76,53 @@ Component types unable to be directly serialized (Material, Mesh, etc.) require 
 
 Try to keep the amount of Unity components in scripts to a minimum. They are the ones that require extra attention. All custom made classes are serialized without any issues.
 
+```csharp
+
+        /// <summary>
+        /// Transform component receives a special class to always save its data.
+        /// </summary>
+        public TransformData tData;
+        /// <summary>
+        /// Rigidbody component receives a special class to always save its data.
+        /// </summary>
+        public RigidbodyData rData;
+        
+        ...
+        
+        public GameObject InstantiateSelf(Func<GameObject, GameObject> instantiateFunc)
+        {
+            
+            ...
+            
+            // Here is where you add any specific support for certain components
+            // In this case only Transform and Rigidbody have special implementations
+
+            if (rData != null)
+            {
+                Rigidbody cloneRigidbody = clone.GetComponent<Rigidbody>();
+                if (cloneRigidbody != null)
+                {
+                    cloneRigidbody.velocity = rData.velocity;
+                    cloneRigidbody.angularVelocity = rData.angularVelocity;
+                }
+            }
+            if (tData != null)
+            {
+                Transform cloneTransform = clone.GetComponent<Transform>();
+                if (cloneTransform != null)
+                {
+                    cloneTransform.position = tData.position;
+                }
+            }
+            
+            ...
+            
+        }
+
+```
+
+Rigidbodys and Transforms are currently automatically saved and loaded, just like with MonoBehaviours.
+
 ## Support
 
 Please [open an issue](https://github.com/fraction/readme-boilerplate/issues/new) for support.
