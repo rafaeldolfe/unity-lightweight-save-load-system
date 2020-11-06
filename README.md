@@ -15,6 +15,8 @@ Make sure Json.NET by Newtonsoft is working for you. This project is dependent o
 
 Download the script files under `PlainSaveLoadScripts` files to your Unity project.
 
+Alternatively, simply drag and drop the unitypackage `unity-lightweight-save-load-system.unitypackage` into your Unity window and import it. This will also include the demo, however. Make sure your resource folder is set up properly in relation to the demo, if you want to run the demo.
+
 Woila! Now it works. You are ready to use the system.
 
 ## Usage
@@ -78,6 +80,8 @@ Try to keep the amount of Unity components in scripts to a minimum. They are the
 
 ```csharp
 
+        ...
+
         /// <summary>
         /// Transform component receives a special class to always save its data.
         /// </summary>
@@ -88,6 +92,10 @@ Try to keep the amount of Unity components in scripts to a minimum. They are the
         public RigidbodyData rData;
         
         ...
+        
+```
+Above are fields dedicated to the Unity components Transform and Rigidbody.
+```csharp
         
         public GameObject InstantiateSelf(Func<GameObject, GameObject> instantiateFunc)
         {
@@ -118,8 +126,11 @@ Try to keep the amount of Unity components in scripts to a minimum. They are the
             ...
             
         }
+        
+        ...
 
 ```
+Above we make sure to insert the position and velocity of the object when reloading it, using the information stored in the TransformData and RigidbodyData.
 
 Rigidbodys and Transforms are currently automatically saved and loaded, just like with MonoBehaviours.
 
