@@ -48,7 +48,9 @@ Here is an example of usage.
 
 ```
 
-The code above saves the scene's brawler GameObjects whenever the player hits "K". The player can then reload the saved GameObjects by hitting "L". As you can see, this code requires you to convert back and forth between GameObjects and PlainGameObjects.
+The code above saves the scene's brawler GameObjects whenever the player hits "K". The player can then reload the saved GameObjects by hitting "L". As you can see, this code requires you to convert back and forth between GameObjects and PlainGameObjects. The database accepts any valid custom class or primitive, so you can save strings, ints, floats and classes.
+
+You can also save and load from different files. The demo only uses the save file 0.
 
 There is some additional support needed to properly save and load GameObjects.
 
