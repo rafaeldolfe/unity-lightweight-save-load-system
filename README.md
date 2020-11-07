@@ -11,7 +11,7 @@ A lightweight and easily modified JSON save load system for Unity which can save
 
 ## Installation
 
-Make sure Json.NET by Newtonsoft is working for you. This project is dependent on it.
+Make sure [Json.NET](https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347) by Newtonsoft is working for you. This project is dependent on it.
 
 Download the script files under `PlainSaveLoadScripts` files to your Unity project.
 
